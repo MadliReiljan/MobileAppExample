@@ -4,7 +4,7 @@ import { colors } from "@/constants/colors";
 
 const styles = StyleSheet.create({
     container: {
-        padding: 1,
+        padding: 0,
     },
     agreeRow: {
         flexDirection: 'row',
