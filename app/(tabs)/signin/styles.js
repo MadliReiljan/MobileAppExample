@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 
-import { colors } from "@/constants/colors";
+import { colors } from "../../../constants/colors";
 
 const styles = StyleSheet.create({
     container: {
-        padding: 0,
+        padding: 24,
     },
     agreeRow: {
         flexDirection: 'row',

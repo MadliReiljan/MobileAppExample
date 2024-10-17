@@ -1,27 +1,88 @@
-import React from "react";
-import {Image, Pressable, Text, View} from 'react-native'
-import {styles} from "./styles"
-import Button from "../components/Button"
-import { router } from 'expo-router'
+import React, { useEffect } from 'react'
+import { SafeAreaView, Image } from 'react-native'
+import Splash from './(tabs)/Splash'
+import Signup from './(tabs)/Signup'
+import SignIn from './(tabs)/Signin'
 
-const Splash = () => {
+import Profile from './Profile'
+import Home from './Home'
+import Favorites from './Favorites'
+
+import { colors } from '../constants/colors'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+const Stack = createNativeStackNavigator()
+
+const Tab = createBottomTabNavigator()
+
+const isSignedin = true
+
+const Tabs = () => {
     return (
-        <View style={styles.container}>
-            <Image  resizeMode="contain" style={styles.image} source={require('../assets/images/splash_image.png')}/>
-            
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>You'll find</Text>
-                <Text style={[styles.innerTitle, styles.title]}> All you need
-                </Text>
-                <Text style={styles.title}>Here!</Text>
-            </View>
+        <Tab.Navigator 
+        screenOptions= {({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+                let icon
 
-            <Button title="Sign Up" onPress={() => router.push('/(tabs)/signup')}/>
-            
-            <Pressable hitSlop={20}>
-                <Text style={styles.footerText} onPress={() => router.push('/(tabs)/signin')} >Sign In</Text>
-            </Pressable>
-        </View>
+                if (route.name === "Home") {
+                    icon = focused
+                       ? require('../assets/tabs/home_active.png')
+                       : require('../assets/tabs/home.png')
+                } else if (route.name === "Favorites") {
+                    icon = focused
+                       ? require('../assets/tabs/bookmark_active.png')
+                       : require('../assets/tabs/bookmark.png')
+                } else if (route.name === "Profile") {
+                    icon = focused
+                       ? require('../assets/tabs/profile_active.png')
+                       : require('../assets/tabs/profile.png')
+                }
+                return <Image style={{width: 24, heigh: 24}} source={icon} />
+            },
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarStyle: {borderTopColor: colors.lightGrey}
+            })}
+            >
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Favorites" component={Favorites} />
+            <Tab.Screen name='Profile' component={Profile} />
+        </Tab.Navigator>
     )
 }
-export default Splash;
+
+const App = () => {
+    const theme = {
+        colors: {
+            background: colors.white
+        }
+    }
+
+    return (
+        <SafeAreaProvider>
+            <Stack.Navigator 
+                screenOptions={{
+                    contentStyle: { backgroundColor: theme.colors.background },
+                    headerShown: false 
+                }}
+            >
+                {isSignedin ? (
+                    <>
+                        <Stack.Screen name="Tabs" component={Tabs} />
+                    </>
+                ) : (
+                    <>
+                        <Stack.Screen name="Splash" component={Splash} />
+                        <Stack.Screen name="Signup" component={Signup} />
+                        <Stack.Screen name="Signin" component={SignIn} />
+                    </>
+                )}
+            </Stack.Navigator>
+        </SafeAreaProvider>
+    )
+}
+
+export default React.memo(App)
