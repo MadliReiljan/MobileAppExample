@@ -11,7 +11,8 @@ export const products = [
         title: 'Wood Mini Table',
         image: 'https://images.unsplash.com/photo-1487015307662-6ce6210680f1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdvb2RlbiUyMHRhYmxlfGVufDB8fDB8fHww',
         category: 2,
-        price: '$ 25.00'
+        price: '$ 25.00',
+        description: 'Wood Mini Table is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family.'
     },
     {
         id: 3,

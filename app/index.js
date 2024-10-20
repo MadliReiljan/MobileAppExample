@@ -7,6 +7,7 @@ import SignIn from './(tabs)/Signin'
 import Profile from './Profile'
 import Home from './Home'
 import Favorites from './Favorites'
+import ProductDetails from './ProductDetails'
 
 import { colors } from '../constants/colors'
 import { NavigationContainer } from '@react-navigation/native'
@@ -71,7 +72,8 @@ const App = () => {
             >
                 {isSignedin ? (
                     <>
-                        <Stack.Screen name="Tabs" component={Tabs} />
+                        <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
+                        <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
                     </>
                 ) : (
                     <>
