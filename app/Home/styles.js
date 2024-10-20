@@ -5,33 +5,22 @@ export const styles = StyleSheet.create({
     container: {
         padding: 24,
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        borderWidth: 0
-    },
-    image: {
-        width: '100%',
-        height: 200
-    },
-    titleContainer: {
-        marginVertical: 54
+        borderWidth: 0,
+        backgroundColor: colors.white
     },
     title: {
-        fontSize: 40,
-        fontWeight: "bold",
-        textAlign: "center"
-    },
-    innerTitle: {
-        color: colors.orange,
-        textDecorationLine: 'underline',
-        textAlign: "center"
-    },
-    footerText: {
-        color: colors.blue,
-        textAlign: "center",
+        color: colors.black,
         fontSize: 16,
-        fontWeight: "bold",
-        marginTop: 30
+        fontWeight: "bold"
+    },
+    icon: {
+        width: 24,
+        height: 24
+    }, 
+    space: {
+        width: 24
+    },
+    list: {
+        paddingVertical: 24
     }
 })
