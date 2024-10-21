@@ -5,20 +5,11 @@ export const styles = StyleSheet.create({
     container: {
         padding: 24,
         backgroundColor: colors.white,
-        flex: 1,
     },
-    name: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: colors.black,
-        marginBottom: 12
-    },
-    email: {
+    sectionTitle: {
+        fontWeight: '500',
         fontSize: 14,
-        color: colors.grey,
-        marginBottom: 24
-    },
-    content: {
-        flex: 1
+        color: colors.blue,
+        marginBottom: 16
     }
 })

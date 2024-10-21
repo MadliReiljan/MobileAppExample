@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { SafeAreaView, Image } from 'react-native'
+import { Image } from 'react-native'
 import Splash from './(tabs)/Splash'
 import Signup from './(tabs)/Signup'
 import SignIn from './(tabs)/Signin'
@@ -8,6 +8,8 @@ import Profile from './Profile'
 import Home from './Home'
 import Favorites from './Favorites'
 import ProductDetails from './ProductDetails'
+import Settings from './Settings'
+import CreateListing from './CreateListing'
 
 import { colors } from '../constants/colors'
 import { NavigationContainer } from '@react-navigation/native'
@@ -20,6 +22,16 @@ const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const isSignedin = true
+
+const ProfileStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}} />
+            <Stack.Screen name="Settings" component={Settings} options={{headerShown: false}} />
+            <Stack.Screen name="CreateListing" component={CreateListing} options={{headerShown: false}} />
+        </Stack.Navigator>
+    )
+}
 
 const Tabs = () => {
     return (
@@ -50,7 +62,7 @@ const Tabs = () => {
             >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Favorites" component={Favorites} />
-            <Tab.Screen name='Profile' component={Profile} />
+            <Tab.Screen name='Profile' component={ProfileStack} />
         </Tab.Navigator>
     )
 }
