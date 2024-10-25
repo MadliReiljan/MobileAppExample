@@ -51,7 +51,6 @@ export const styles = StyleSheet.create({
     },
     imageContainer: {
         flexDirection: 'row',
-        marginRight: 8
     },
     delete: {
         width: 24,

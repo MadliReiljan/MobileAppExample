@@ -9,6 +9,8 @@ import { styles } from './styles';
 
 import { launchCamera, launchImageLibrary} from 'react-native-image-picker'
 
+import * as ImagePicker from 'expo-image-picker';
+
 const CreateListing = ({ navigation }) => {
     const [images, setImages] = useState([])
     const [values, setValues] = useState({})
@@ -20,12 +22,25 @@ const CreateListing = ({ navigation }) => {
     }
     
     const uploadNewImage = async () => {
-        const result = await launchImageLibrary()
-        console.log(result)
-        if(result?.assets?.length) {
-            setImages(list => ([...list, ...result?.assets]))
+        const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    
+        if (permissionResult.granted === false) {
+            alert("Permission to access camera roll is required!");
+            return;
         }
-    }
+    
+        const result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All, 
+            allowsMultipleSelection: true, 
+            aspect: [4, 3],
+            quality: 1,
+        });
+    
+        if (result.assets) {
+            setImages(list => ([...list, ...result.assets]));
+        }
+    };
+
 
     const onDeleteImage = (image) => {
         setImages((list) => {
@@ -52,14 +67,14 @@ const CreateListing = ({ navigation }) => {
                             <Text style={styles.uploadPlus}>+</Text>
                         </View>
                     </TouchableOpacity>
-                    {images?.map(image => (
-                        <View key={image?.fileName} style={styles.imageContainer}>
-                            <Image source={{uri: image?. uri}}/>
-                            <Pressable hitSlop={20} onPress={() => onDeleteImage(image)} >
-                                <Image style={styles.delete} source={require('../../assets/close.png')}/>
-                            </Pressable>
-                        </View>
-                    ))}
+                    {images.map((image) => (
+                    <View key={image.fileName} style={styles.imageContainer}>
+                        <Image source={{ uri: image.uri }} style={styles.image} />
+                        <Pressable hitSlop={20} onPress={() => onDeleteImage(image)}>
+                            <Image style={styles.delete} source={require('../../assets/close.png')} />
+                        </Pressable>
+                    </View>
+                ))}
                 </View>
                 <Input label="Title" placeholder="Listing Title" value={values.title} onChangeText={(v) => onChange(v, 'title')}/>
                 <Input label="Category" placeholder="Select the category" value={values.category} onChangeText={(v) => onChange(v, 'category')} type="picker" options={categories}/>
