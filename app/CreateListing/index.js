@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Image, Pressable, ActivityIndicator, KeyboardAvoidingView } from "react-native";
+import { View, Text, TouchableOpacity, Image, Pressable, ActivityIndicator, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from '../../components/Header/Index';
 import Button from "../../components/Button"
 import Input from "../../components/Input";
+import { categories } from "../../data/categories"
 import { styles } from './styles';
 
 import { launchCamera, launchImageLibrary} from 'react-native-image-picker'
@@ -12,13 +13,7 @@ const CreateListing = ({ navigation }) => {
     const [images, setImages] = useState([])
     const [values, setValues] = useState({})
 
-    const categories = [
-        { id: 1, label: 'Chair', value: 'Chair' },
-        { id: 2, label: 'Table', value: 'Table' },
-        { id: 3, label: 'Armchair', value: 'Armchair' },
-        { id: 4, label: 'Sofa', value: 'Sofa' },
-        { id: 5, label: 'Bed', value: 'Bed' },
-    ];
+    console.log('values => ', values)
 
     const goBack = () => {
         navigation.goBack()
@@ -28,7 +23,7 @@ const CreateListing = ({ navigation }) => {
         const result = await launchImageLibrary()
         console.log(result)
         if(result?.assets?.length) {
-            setImages(list => ([...list,result?.assets]))
+            setImages(list => ([...list, ...result?.assets]))
         }
     }
 
@@ -44,9 +39,11 @@ const CreateListing = ({ navigation }) => {
     }
 
     return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView style={{flex: 1}} >
             <KeyboardAvoidingView behavior="position">
-            <Header showBack={true} onBackPress={goBack} title="Create a new listing"/>
+            <ScrollView>
+            <Header showBack={true} onBackPress={goBack} title="Create a new listing" />
             <View style={styles.container}>
                 <Text style={styles.sectionTitle}>Upload photos</Text>
                     <View style={styles.imageRow}>
@@ -70,8 +67,10 @@ const CreateListing = ({ navigation }) => {
                 <Input style={styles.textarea} label="Description" placeholder="Tell us more..." value={values.description} onChangeText={(v) => onChange(v, 'description')} multiline/>
                 <Button title="Submit"/>
             </View>
+            </ScrollView>
             </KeyboardAvoidingView>
         </SafeAreaView>
+        </TouchableWithoutFeedback>
     )
 }
 

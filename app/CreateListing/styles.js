@@ -62,5 +62,8 @@ export const styles = StyleSheet.create({
     textarea: {
         minHeight: 120,
         paddingTop: 16
+    },
+    headerContainer: {
+        backgroundColor: colors.white
     }
 })

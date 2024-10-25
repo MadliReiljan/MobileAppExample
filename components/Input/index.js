@@ -13,16 +13,17 @@ const Input = ({label, type, options, placeholder, isPassword, value, onChangeTe
   }
 
   const onSelect = (opt) => {
-    onChangeText(opt.label)
+    onChangeText(opt)
     setPickerModalVisible(false)
   }
 
   return (
+    
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       {type === 'picker' ? (
         <Pressable onPress={() => setPickerModalVisible(true)} style={styles.inputContainer}>
-          { value ? (<Text style={[styles.placeholder, style]}>{value?.title}</Text>) : (<Text style={[styles.placeholder, style]}>{placeholder}</Text>)}
+          { value ? (<Text style={[styles.placeholder, { color: colors.black }]}>{value?.title}</Text>) : (<Text style={[styles.placeholder, style]}>{placeholder}</Text>)}
             <Image style={styles.arrow} source={require('../../assets/arrow.png')} />
         </Pressable>
       ) : (

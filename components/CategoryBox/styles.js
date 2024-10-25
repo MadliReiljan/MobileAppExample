@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         height: 32
     },
     imageContainer: {
-        backgroundColor: colors.lightGrey,
+        backgroundColor: colors.white,
         padding: 8,
         borderRadius: 8,
         marginBottom: 8

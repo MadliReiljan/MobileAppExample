@@ -17,11 +17,12 @@ export const styles = StyleSheet.create({
         fontWeight: '500',
         fontSize: 16,
         color: colors.grey,
-        marginBottom: 16
+        marginBottom: 16,
+        
     },
     sectionHeader: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     icon: {
         width: 32,
