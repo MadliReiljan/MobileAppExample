@@ -1,50 +1,50 @@
-# Welcome to your Expo app 👋
+# MobileAppExample
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This mobile app is a furniture shopping platform, allowing users to explore and share furniture listings. 
+The app is built with React, JavaScript, and Expo Go.
 
-## Get started
+Figma design: https://www.figma.com/design/SQiUP6PMH4IKGV7O7lSPmE/furniture-app
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+* Onboarding Screen: Engaging graphics and clear instructions welcome users to the app.
 
-2. Start the app
+* Authentication & Authorization System: Secure email login safeguards user accounts.
 
-   ```bash
-    npx expo start
-   ```
+* Dynamic Home Screen: Showcases different furnitures.
 
-In the output, you'll find options to open the app in a
+* Full-Text Search Capability: Efficiently search through videos with real-time suggestions and instant results.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+* Tab Navigation: Navigate between sections like Home, Favorites, and Profile with ease using tab navigation.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* Screen for Uploading Media: Upload image posts directly from the app with integrated media selection.
 
-## Get a fresh project
+* Profile Screen with Detailed Insights: View account details and create listing button.
 
-When you're ready, run:
+## Installation
+
+Make sure you have the following installed on your machine:
+
+* Git
+* Node.js (v20.11.1)
+* npm (Node Package Manager)
+
+### Cloning the Repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/MadliReiljan/MobileAppExample
 ```
+### Installation
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Install the project dependencies:
 
-## Learn more
+```bash
+npm install
+```
+### Running the Project
 
-To learn more about developing your project with Expo, look at the following resources:
+Download the Expo Go app onto your device, then use it to scan the QR code from Terminal and run.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+ npx expo start -c
+```
