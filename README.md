@@ -13,7 +13,7 @@ Figma design: https://www.figma.com/design/SQiUP6PMH4IKGV7O7lSPmE/furniture-app
 
 * Dynamic Home Screen: Showcases different furnitures.
 
-* Full-Text Search Capability: Efficiently search through videos with real-time suggestions and instant results.
+* Full-Text Search Capability: Efficiently search through listings.
 
 * Tab Navigation: Navigate between sections like Home, Favorites, and Profile with ease using tab navigation.
 
