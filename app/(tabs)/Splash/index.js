@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import { UserContext } from "../../index"
 import {Image, Pressable, Text, View} from 'react-native'
 import {styles} from "./styles"
 import Button from "../../../components/Button"
 import { router } from 'expo-router'
 
 const Splash = ({navigation}) => {
-    console.log('navigation => ', navigation)
+    const user = useContext(UserContext)
+    console.log('user => ', user)
 
     const onSignup = () => {
         navigation.navigate('Signup')
@@ -28,7 +30,7 @@ const Splash = ({navigation}) => {
             <Button onPress={onSignup} title="Sign up" />
             
             <Pressable onPress={onSignin} hitSlop={20}>
-                <Text style={styles.footerText} onPress={() => router.push('/(tabs)/signin')} >Sign In</Text>
+                <Text style={styles.footerText} onPress={() => router.push('/(tabs)/Signin')} >Sign In</Text>
             </Pressable>
         </View>
     )
