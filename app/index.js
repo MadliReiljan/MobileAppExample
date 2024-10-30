@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { Image } from 'react-native'
 import Splash from './(tabs)/Splash'
 import Signup from './(tabs)/Signup'
@@ -12,7 +12,6 @@ import Settings from './Settings'
 import CreateListing from './CreateListing'
 
 import { colors } from '../constants/colors'
-import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -21,7 +20,7 @@ const Stack = createNativeStackNavigator()
 
 const Tab = createBottomTabNavigator()
 
-const isSignedin = true
+export const UserContext = React.createContext()
 
 const ProfileStack = () => {
     return (
@@ -68,6 +67,9 @@ const Tabs = () => {
 }
 
 const App = () => {
+    const isSignedin = false
+    const [user, setUser] = useState()
+
     const theme = {
         colors: {
             background: colors.white
@@ -76,13 +78,14 @@ const App = () => {
 
     return (
         <SafeAreaProvider>
+            <UserContext.Provider value={{user, setUser}}>
             <Stack.Navigator 
                 screenOptions={{
                     contentStyle: { backgroundColor: theme.colors.background },
                     headerShown: false 
                 }}
             >
-                {isSignedin ? (
+                {user?.accessToken ? (
                     <>
                         <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
                         <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
@@ -95,6 +98,7 @@ const App = () => {
                     </>
                 )}
             </Stack.Navigator>
+            </UserContext.Provider>
         </SafeAreaProvider>
     )
 }
