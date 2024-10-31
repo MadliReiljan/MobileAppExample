@@ -7,7 +7,7 @@ import Button from '../../../components/Button';
 import Separator from '../../../components/Separator';
 import GoogleLogin from '../../../components/GoogleLogin';
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { UserContext } from "../../index"; 
+import { UserContext } from "../../index";
 import { Client, Account } from 'appwrite';
 
 const client = new Client();
@@ -19,6 +19,7 @@ const account = new Account(client);
 
 const SignIn = ({ navigation }) => {
     const { setUser } = useContext(UserContext);
+    console.log("User context:", setUser);
     const [values, setValues] = useState({ email: '', password: '' });
     const [loading, setLoading] = useState(false);
 

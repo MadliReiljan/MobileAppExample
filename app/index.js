@@ -52,7 +52,7 @@ const Tabs = () => {
                        ? require('../assets/tabs/profile_active.png')
                        : require('../assets/tabs/profile.png')
                 }
-                return <Image style={{width: 24, heigh: 24}} source={icon} />
+                return <Image style={{width: 24, height: 24}} source={icon} />
             },
             headerShown: false,
             tabBarShowLabel: false,
@@ -68,7 +68,7 @@ const Tabs = () => {
 
 const App = () => {
     const isSignedin = false
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(null)
 
     const theme = {
         colors: {

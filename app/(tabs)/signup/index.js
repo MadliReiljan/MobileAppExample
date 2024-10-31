@@ -14,7 +14,7 @@ import { Client, Account } from 'appwrite';
 const Signup = ({ navigation }) => {
     const [checked, setChecked] = useState(false);
     const [values, setValues] = useState({});
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
 
     const client = new Client();
