@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Pressable, Image, Text, View } from "react-native"
-import Input from "../Input";
+import Input from "@/components/Input";
 import { styles } from "./styles"
 
 const Header = ({title, onBackPress, onLogout, showBack, showSearch, showLogout}) => {
@@ -15,18 +15,18 @@ const Header = ({title, onBackPress, onLogout, showBack, showSearch, showLogout}
             <View style={styles.container}>
                 {   showBack ? (
                         <Pressable hitSlop={20} onPress={onBackPress} >
-                            <Image style={styles.icon} source={require('../../assets/back.png')} />
+                            <Image style={styles.icon} source={require('@/assets/back.png')} />
                         </Pressable>
                     ) : showSearch ? (
                         <Pressable hitSlop={20} onPress={onSearch} >
-                            <Image style={styles.icon} source={require('../../assets/search.png')} />
+                            <Image style={styles.icon} source={require('@/assets/search.png')} />
                         </Pressable>
                     ) : <View style={styles.space}/>
                 }
             <Text style={styles.title}>{title}</Text>
             {   showLogout ? (
                     <Pressable hitSlop={20} onPress={onLogout}>
-                        <Image style={styles.icon} source={require('../../assets/logout.png')} />
+                        <Image style={styles.icon} source={require('@/assets/logout.png')} />
                     </Pressable>
                 ) : <View style={styles.space}/>
             }

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { UserContext } from "../../index"; 
+import { UserContext } from "@/app/index"; 
 import { Image, Pressable, Text, View } from 'react-native';
 import { styles } from "./styles";
-import Button from "../../../components/Button";
+import Button from "@/components/Button";
 import { useNavigation } from '@react-navigation/native'; 
 
 const Splash = () => {

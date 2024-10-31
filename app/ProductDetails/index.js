@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, Text, ScrollView, View, Pressable, Linking } from "react-native"
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Button from "../../components/Button"
-import ImageCarusel from "../../components/ImageCarusel";
+import Button from "@/components/Button"
+import ImageCarusel from "@/components/ImageCarusel";
 import { styles } from "./styles"
 
 const ProductDetails = ({navigation, route}) => {

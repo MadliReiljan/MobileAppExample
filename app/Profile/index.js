@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { View, Text, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
-import Header from "../../components/Header/Index";
-import ListItem from "../../components/ListItem";
-import Button from "../../components/Button";
+import Header from "@/components/Header/Index";
+import ListItem from "@/components/ListItem";
+import Button from "@/components/Button";
 import { Client, Account } from 'appwrite';
-import { UserContext } from "../index";
+import { UserContext } from "@/app/index";
 
 const client = new Client();
 client

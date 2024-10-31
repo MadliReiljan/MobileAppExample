@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image, Pressable, ActivityIndicator, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from '../../components/Header/Index';
-import Button from "../../components/Button"
-import Input from "../../components/Input";
-import { categories } from "../../data/categories"
+import Header from '@/components/Header/Index';
+import Button from "@/components/Button"
+import Input from "@/components/Input";
+import { categories } from "@/data/categories"
 import { styles } from './styles';
-
-import { launchCamera, launchImageLibrary} from 'react-native-image-picker'
 
 import * as ImagePicker from 'expo-image-picker';
 

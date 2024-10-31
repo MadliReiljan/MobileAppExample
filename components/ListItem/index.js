@@ -9,7 +9,7 @@ const ListItem = ({title, subtitle, onPress, style}) => {
                 <Text style={styles.title}>{title}</Text>
                 {!! subtitle ? (<Text style={styles.subtitle} >{subtitle}</Text>) : null} 
             </View>
-            <Image style={styles.arrow} source={require('../../assets/arrow.png')} resizeMode="contain" />
+            <Image style={styles.arrow} source={require('@/assets/arrow.png')} resizeMode="contain" />
         </Pressable>
     )
 }

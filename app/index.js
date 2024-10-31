@@ -11,7 +11,7 @@ import ProductDetails from './ProductDetails'
 import Settings from './Settings'
 import CreateListing from './CreateListing'
 
-import { colors } from '../constants/colors'
+import { colors } from '@/constants/colors'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -41,16 +41,16 @@ const Tabs = () => {
 
                 if (route.name === "Home") {
                     icon = focused
-                       ? require('../assets/tabs/home_active.png')
-                       : require('../assets/tabs/home.png')
+                       ? require('@/assets/tabs/home_active.png')
+                       : require('@/assets/tabs/home.png')
                 } else if (route.name === "Favorites") {
                     icon = focused
-                       ? require('../assets/tabs/bookmark_active.png')
-                       : require('../assets/tabs/bookmark.png')
+                       ? require('@/assets/tabs/bookmark_active.png')
+                       : require('@/assets/tabs/bookmark.png')
                 } else if (route.name === "Profile") {
                     icon = focused
-                       ? require('../assets/tabs/profile_active.png')
-                       : require('../assets/tabs/profile.png')
+                       ? require('@/assets/tabs/profile_active.png')
+                       : require('@/assets/tabs/profile.png')
                 }
                 return <Image style={{width: 24, height: 24}} source={icon} />
             },

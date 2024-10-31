@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, Linking, Image, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Header from '../../components/Header/Index';
-import ListItem from '../../components/ListItem';
+import Header from '@/components/Header/Index';
+import ListItem from '@/components/ListItem';
 import { styles } from './styles';
-import EditableBox from '../../components/EditableBox';
-import Button from "../../components/Button"
+import EditableBox from '@/components/EditableBox';
+import Button from "@/components/Button"
 
 const Settings = () => {
     const [editing, setEditing] = useState(false)

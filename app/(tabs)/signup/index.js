@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from "../../index";
+import { UserContext } from "@/app/index";
 import { View, Text, Alert } from "react-native";
-import AuthHeader from "../../../components/AuthHeader";
-import Input from '../../../components/Input';
-import Checkbox from '../../../components/Checkbox';
-import Button from '../../../components/Button';
+import AuthHeader from "@/components/AuthHeader";
+import Input from '@/components/Input';
+import Checkbox from '@/components/Checkbox';
+import Button from '@/components/Button';
 import { styles } from './styles';
-import Separator from '../../../components/Separator';
-import GoogleLogin from '../../../components/GoogleLogin';
+import Separator from '@/components/Separator';
+import GoogleLogin from '@/components/GoogleLogin';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Client, Account } from 'appwrite';
 

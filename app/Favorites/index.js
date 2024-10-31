@@ -2,9 +2,9 @@ import React from "react";
 import { View, FlatList } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
-import { products } from "../../data/products"
-import FavoriteItem from "../../components/FavoriteItem"
-import  Header  from "../../components/Header/Index";
+import { products } from "@/data/products"
+import FavoriteItem from "@/components/FavoriteItem"
+import  Header  from "@/components/Header/Index";
 
 const Favorites = ({navigation}) => {
     const renderItem = ({item}) => {
