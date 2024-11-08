@@ -1,7 +1,7 @@
 # MobileAppExample
 
 This mobile app is a furniture shopping platform, allowing users to explore and share furniture listings. 
-The app is built with React, JavaScript, and Expo Go.
+The app is built with React, JavaScript, Appwrite and Expo Go.
 
 Figma design: https://www.figma.com/design/SQiUP6PMH4IKGV7O7lSPmE/furniture-app
 
@@ -9,7 +9,7 @@ Figma design: https://www.figma.com/design/SQiUP6PMH4IKGV7O7lSPmE/furniture-app
 
 * Onboarding Screen: Engaging graphics and clear instructions welcome users to the app.
 
-* Authentication & Authorization System: Secure email login safeguards user accounts.
+* Authentication & Authorization System: Sign up, sing in and log out functions using Appwrite.
 
 * Dynamic Home Screen: Showcases different furnitures.
 
@@ -33,6 +33,9 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/MadliReiljan/MobileAppExample
+
+cd MobileAppExample
+
 ```
 ### Installation
 
