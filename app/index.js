@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Image } from 'react-native'
-import Splash from './(tabs)/Splash'
-import Signup from './(tabs)/Signup'
-import SignIn from './(tabs)/Signin'
+import Splash from './(tabs)/splash'
+import Signup from './(tabs)/signup'
+import SignIn from './(tabs)/signin'
 
 import Profile from './Profile'
 import Home from './Home'
