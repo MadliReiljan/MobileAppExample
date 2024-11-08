@@ -2,6 +2,7 @@
 
 This mobile app is a furniture shopping platform, allowing users to explore and share furniture listings. 
 The app is built with React, JavaScript, Appwrite and Expo Go.
+NB! This app mostly works on IOS, if you try to use this app with Android then there might appear some design flaws.
 
 Figma design: https://www.figma.com/design/SQiUP6PMH4IKGV7O7lSPmE/furniture-app
 
@@ -22,12 +23,6 @@ Figma design: https://www.figma.com/design/SQiUP6PMH4IKGV7O7lSPmE/furniture-app
 * Profile Screen with Detailed Insights: View account details and create listing button.
 
 ## Installation
-
-Make sure you have the following installed on your machine:
-
-* Git
-* Node.js (v20.11.1)
-* npm (Node Package Manager)
 
 ### Cloning the Repository
 
