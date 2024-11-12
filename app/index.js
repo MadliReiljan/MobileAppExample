@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image } from 'react-native'
 import Splash from './(tabs)/splash'
 import Signup from './(tabs)/signup'
@@ -15,12 +15,12 @@ import { colors } from '@/constants/colors'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { getCurrentUser } from '@/lib/appwrite';
+import { UserContext } from '@/context/usercontext';
 
 const Stack = createNativeStackNavigator()
-
 const Tab = createBottomTabNavigator()
 
-export const UserContext = React.createContext()
 
 const ProfileStack = () => {
     return (
@@ -32,7 +32,7 @@ const ProfileStack = () => {
     )
 }
 
-const Tabs = () => {
+const Tabs = ({ setIsAuthenticated }) => {
     return (
         <Tab.Navigator 
         screenOptions= {({ route }) => ({
@@ -67,40 +67,55 @@ const Tabs = () => {
 }
 
 const App = () => {
-    const isSignedin = false
-    const [user, setUser] = useState(null)
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const theme = { colors: { background: colors.white } }; 
 
-    const theme = {
-        colors: {
-            background: colors.white
-        }
-    }
+    useEffect(() => {
+        const checkAuthentication = async () => {
+            try {
+                const user = await getCurrentUser();
+                setIsAuthenticated(!!user);
+            } catch (error) {
+                console.log("Error fetching user: ", error);
+                setIsAuthenticated(false);
+            }
+        };
+        checkAuthentication();
+    }, []);
+
+    const handleSignInSuccess = () => {
+        setIsAuthenticated(true); 
+    };
 
     return (
         <SafeAreaProvider>
-            <UserContext.Provider value={{user, setUser}}>
-            <Stack.Navigator 
-                screenOptions={{
-                    contentStyle: { backgroundColor: theme.colors.background },
-                    headerShown: false 
-                }}
-            >
-                {user?.accessToken ? (
-                    <>
-                        <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
-                        <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
-                    </>
-                ) : (
-                    <>
-                        <Stack.Screen name="Splash" component={Splash} />
-                        <Stack.Screen name="Signup" component={Signup} />
-                        <Stack.Screen name="Signin" component={SignIn} />
-                    </>
-                )}
-            </Stack.Navigator>
+            <UserContext.Provider value={{ setIsAuthenticated }}>
+                <Stack.Navigator
+                    screenOptions={{
+                        contentStyle: { backgroundColor: theme.colors.background },
+                        headerShown: false,
+                    }}
+                >
+                    {isAuthenticated ? (
+                        <>
+                            <Stack.Screen name="Tabs" component={Tabs} />
+                            <Stack.Screen name="ProductDetails" component={ProductDetails} />
+                        </>
+                    ) : (
+                        <>
+                            <Stack.Screen name="Splash" component={Splash} />
+                            <Stack.Screen name="Signup">
+                                {(props) => <Signup {...props} setIsAuthenticated={setIsAuthenticated} />}
+                            </Stack.Screen>
+                            <Stack.Screen name="Signin">
+                                {(props) => <SignIn {...props} onSignInSuccess={handleSignInSuccess} />}
+                            </Stack.Screen>
+                        </>
+                    )}
+                </Stack.Navigator>
             </UserContext.Provider>
         </SafeAreaProvider>
-    )
-}
+    );
+};
 
 export default React.memo(App)
