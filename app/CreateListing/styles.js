@@ -66,3 +66,5 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.white
     }
 })
+
+export default styles;

@@ -1,7 +1,7 @@
 import { View, Text, Alert } from 'react-native';
 import React, { useState } from 'react';
 import AuthHeader from '@/components/AuthHeader';
-import styles from './styles';
+import styles from '@/app/(tabs)/signin/styles';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import Separator from '@/components/Separator';

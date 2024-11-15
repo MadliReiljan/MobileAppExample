@@ -17,6 +17,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { getCurrentUser } from '@/lib/appwrite';
 import { UserContext } from '@/context/usercontext';
+import { NavigationContainer } from '@react-navigation/native'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -90,6 +91,7 @@ const App = () => {
     return (
         <SafeAreaProvider>
             <UserContext.Provider value={{ setIsAuthenticated }}>
+                <NavigationContainer>
                 <Stack.Navigator
                     screenOptions={{
                         contentStyle: { backgroundColor: theme.colors.background },
@@ -113,6 +115,7 @@ const App = () => {
                         </>
                     )}
                 </Stack.Navigator>
+                </NavigationContainer>
             </UserContext.Provider>
         </SafeAreaProvider>
     );
