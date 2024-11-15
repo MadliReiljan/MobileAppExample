@@ -41,8 +41,10 @@ npm install
 ```
 ### Running the Project
 
-Download the Expo Go app onto your device, then use it to scan the QR code from Terminal and run.
+Download the Expo Go app onto your device, then use the given code:
 
 ```bash
  npx expo start -c
 ```
+
+After running the code in the terminal, scan the created QR code with your phone.
